@@ -6,3 +6,8 @@ knpu_oauth2_client:
             client_id: '%env(GITHUB_ID)%'
             client_secret: '%env(GITHUB_SECRET)%'
             redirect_route: github_connect_check
+        gitlab:
+            type: gitlab
+            client_id: '%env(GITLAB_ID)%'
+            client_secret: '%env(GITLAB_SECRET)%'
+            redirect_route: gitlab_connect_check
