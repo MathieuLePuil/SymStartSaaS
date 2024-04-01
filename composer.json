@@ -13,6 +13,7 @@
         "doctrine/orm": "^3.1",
         "knpuniversity/oauth2-client-bundle": "^2.18",
         "league/oauth2-github": "^3.1",
+        "league/oauth2-google": "^4.0",
         "omines/oauth2-gitlab": "^3.6",
         "symfony/console": "7.0.*",
         "symfony/dotenv": "7.0.*",

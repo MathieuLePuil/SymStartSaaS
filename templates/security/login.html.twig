@@ -13,9 +13,6 @@
         <div>
             <div>
                 <label for="password">Password</label>
-                <div>
-{#                    <a href="{{ path('app_forgot_password') }}">Forgot password?</a>#}
-                </div>
             </div>
             <div>
                 <input id="password" name="password" type="password" autocomplete="current-password" required >
@@ -32,5 +29,6 @@
 
     <a href="{{ path('github_connect') }}">Login with Github</a>
     <a href="{{ path('gitlab_connect') }}">Login with Gitlab</a>
+    <a href="{{ path('google_connect') }}">Login with Google</a>
 
 {% endblock %}
