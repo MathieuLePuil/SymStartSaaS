@@ -28,7 +28,8 @@
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "7.0.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "wohali/oauth2-discord-new": "^1.2"
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.57",
