@@ -1,32 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Welcome to SymStartSaaS!{% endblock %}
 
 {% block body %}
+
     {% for message in app.flashes('success') %}
-        <div class="bg-green-300">
-            {{ message }}
+        <div class="fixed top-0 right-0 m-6 p-4 bg-green-600 text-white rounded shadow-lg">
+            <p>{{ message }}</p>
         </div>
     {% endfor %}
+
     {% for message in app.flashes('error') %}
-        <div class="bg-red-500">
-            {{ message }}
+        <div class="fixed top-0 right-0 m-6 p-4 bg-red-600 text-white rounded shadow-lg">
+            <p>{{ message }}</p>
         </div>
     {% endfor %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/SymStartSaaS/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/var/www/SymStartSaaS/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
-
+    <div class="container bg-black h-screen min-w-[100vw] flex flex-col items-center justify-center space-y-12">
+        <div class="space-y-2 flex flex-col items-center">
+            <img src="logo-symstartsaas.png" alt="SymStartSaaS Logo" class="w-32 h-32">
+            <h1 class="text-white font-semibold text-4xl">Welcome to SymStartSaaS !</h1>
+        </div>
+        <div class="max-w-[70%] text-white space-y-5">
+            <div class="p-10 border border-1 border-blue-400 hover:bg-gray-800 shadow rounded-lg">
+                <h2 class="text-2xl font-semibold pb-3">What is SymStartSaaS ?</h2>
+                <p class="text-lg">SymStartSaaS is a Symfony project base with elements such as Tailwind, user management, account creation with GitHub, Google or Discord and payment via Stripe.</p>
+            </div>
+            <div class="grid grid-cols-2 grid-rows-2 gap-5">
+                <a href="https://symstartsass.vercel.app/" target="_blank" class="border border-1 border-blue-400 hover:bg-gray-800 shadow rounded-md p-6">
+                    <h3 class="text-xl font-semibold pb-3">Website</h3>
+                    <p class="text-xs">You can find out all about the project's dependencies on the presentation page of our website.</p>
+                </a>
+                <a href="https://github.com/MathieuLePuil/SymStartSaaS" target="_blank" class="col-start-1 row-start-2 border border-1 border-blue-400 hover:bg-gray-800 shadow rounded-md p-6">
+                    <h3 class="text-xl font-semibold pb-3">Github</h3>
+                    <p class="text-sm">You can find all the code in this boilerplate on its GitHub repository.</p>
+                </a>
+                <a href="https://symstartsaas.mathieulp.fr/docs" target="_blank" class="row-span-2 col-start-2 row-start-1 border border-1 border-blue-400 hover:bg-gray-800 shadow rounded-md p-6 space-y-10">
+                    <div>
+                        <h3 class="text-xl font-semibold pb-3">Documentation</h3>
+                        <p class="text-sm">Read the documentation carefully to ensure that the project is as close as possible to your expectations. You can modify, delete or add connection methods, change payment information...</p>
+                    </div>
+                    <div class="space-y-3">
+                        <p class="text-sm">Go to <span class="border border-1 border-gray-400 bg-gray-700 shadow-2xl p-1 rounded">/login</span> to continue</p>
+                        <p class="text-sm">When you're log in, you can pay with <span class="border border-1 border-gray-400 bg-gray-700 shadow-2xl p-1 rounded">/payment</span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

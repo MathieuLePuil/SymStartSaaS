@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class StripeController extends AbstractController
 {
-    #[Route('/create-checkout-session', name: 'app_stripe_create-checkout-session')]
+    #[Route('/payment', name: 'app_stripe_create-checkout-session')]
     public function createCheckoutSession(): Response
     {
         $stripeApiKey = $_ENV['STRIPE_API_KEY'];
