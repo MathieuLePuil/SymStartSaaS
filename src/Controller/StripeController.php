@@ -13,6 +13,10 @@ class StripeController extends AbstractController
     #[Route('/payment', name: 'app_stripe_create-checkout-session')]
     public function createCheckoutSession(): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $stripeApiKey = $_ENV['STRIPE_API_KEY'];
         $stripe = new StripeClient($stripeApiKey);
 

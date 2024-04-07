@@ -1,35 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SecurityController!{% endblock %}
+{% block title %}Login | SymStartSaaS{% endblock %}
 
 {% block body %}
-    <form action="{{ path('app_login') }}" method="POST">
-        <div>
-            <label for="email">Email address</label>
-            <div>
-                <input id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-        </div>
-        <div>
-            <div>
-                <label for="password">Password</label>
-            </div>
-            <div>
-                <input id="password" name="password" type="password" autocomplete="current-password" required >
-            </div>
-        </div>
-        <div>
-            <button type="submit">Sign in</button>
-        </div>
-    </form>
-    <p>
-        Not a member?
-        <a href="{{ path('app_signup') }}">Create account</a>
-    </p>
 
-    <a href="{{ path('github_connect') }}">Login with Github</a>
-    <a href="{{ path('gitlab_connect') }}">Login with Gitlab</a>
-    <a href="{{ path('google_connect') }}">Login with Google</a>
-    <a href="{{ path('discord_connect') }}">Login with Discord</a>
+    {% for message in app.flashes('success') %}
+        <div class="fixed top-0 right-0 m-6 p-4 bg-green-600 text-white rounded shadow-lg">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="fixed top-0 right-0 m-6 p-4 bg-red-600 text-white rounded shadow-lg">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    <div class="container bg-black min-w-[100vw] h-screen flex flex-col items-center justify-center">
+        <div class="rounded-lg shadow-lg p-8 text-white max-w-lg w-full">
+            <h2 class="text-3xl font-semibold mb-8 text-center">Login to your account</h2>
+
+            <form action="{{ path('app_login') }}" method="POST">
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md" required>
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-medium mb-2">Password</label>
+                    <input type="password" id="password" name="password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md" required>
+                </div>
+                <div class="mb-6">
+                    <button type="submit" class="w-full p-3 bg-blue-400 rounded-md font-semibold text-white hover:bg-blue-500 hover:scale-105 transition-all duration-200 ease">Sign in</button>
+                </div>
+            </form>
+
+            <div class="grid grid-cols-2 gap-4">
+                <a href="{{ path('github_connect') }}" class="p-3 bg-gray-800 rounded-md text-center font-semibold text-white hover:bg-gray-700 hover:scale-105 transition-all duration-200 ease">Github</a>
+                <a href="{{ path('gitlab_connect') }}" class="p-3 bg-gray-800 rounded-md text-center font-semibold text-white hover:bg-gray-700 hover:scale-105 transition-all duration-200 ease">Gitlab</a>
+                <a href="{{ path('google_connect') }}" class="p-3 bg-gray-800 rounded-md text-center font-semibold text-white hover:bg-gray-700 hover:scale-105 transition-all duration-200 ease">Google</a>
+                <a href="{{ path('discord_connect') }}" class="p-3 bg-gray-800 rounded-md text-center font-semibold text-white hover:bg-gray-700 hover:scale-105 transition-all duration-200 ease">Discord</a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

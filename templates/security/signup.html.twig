@@ -1,51 +1,76 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
+    <div class="bg-black flex justify-center items-center h-screen">
+        <div class="w-full max-w-md">
 
-        {% for message in app.flashes('success') %}
-            <div>
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('error') %}
-            <div>
-                {{ message }}
-            </div>
-        {% endfor %}
+            {% for message in app.flashes('success') %}
+                <div class="fixed top-0 right-0 m-6 p-4 bg-green-600 text-white rounded shadow-lg">
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('error') %}
+                <div class="fixed top-0 right-0 m-6 p-4 bg-red-600 text-white rounded shadow-lg">
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
 
-        <div>
-            <div>
-                {{ form_start(form) }}
-                <div>
+            <h2 class="text-3xl text-white font-semibold mb-8 text-center">Create account</h2>
+
+            <div class="p-6 rounded-lg shadow-lg">
+                {{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
+
+                <div class="grid grid-cols-1 gap-4 mb-4">
                     <div>
-                        {{ form_row(form.firstname) }}
+                        {{ form_row(form.firstname, {
+                            'attr': {'class': 'w-full p-2 bg-gray-700 text-white border border-gray-600 rounded-md'},
+                            'label_attr': {'class': 'text-white'}
+                        }) }}
                     </div>
                     <div>
-                        {{ form_row(form.lastname) }}
+                        {{ form_row(form.lastname, {
+                            'attr': {'class': 'w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-md'},
+                            'label_attr': {'class': 'text-white'}
+                        }) }}
                     </div>
                 </div>
+
                 <div>
-                    {{ form_row(form.username) }}
+                    {{ form_row(form.username, {
+                        'attr': {'class': 'w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-md'},
+                        'label_attr': {'class': 'text-white'}
+                    }) }}
                 </div>
                 <div>
-                    {{ form_row(form.email) }}
+                    {{ form_row(form.email, {
+                        'attr': {'class': 'w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-md'},
+                        'label_attr': {'class': 'text-white'}
+                    }) }}
                 </div>
-                <div>
+
+                <div class="grid grid-cols-1 gap-4 mb-4">
                     <div>
-                        {{ form_row(form.password.first) }}
+                        {{ form_row(form.password.first, {
+                            'attr': {'class': 'w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-md'},
+                            'label_attr': {'class': 'text-white'}
+                        }) }}
                     </div>
                     <div>
-                        {{ form_row(form.password.second) }}
+                        {{ form_row(form.password.second, {
+                            'attr': {'class': 'w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-md'},
+                            'label_attr': {'class': 'text-white'}
+                        }) }}
                     </div>
                 </div>
+
                 <div>
-                    {{ form_row(form.submit) }}
+                    {{ form_row(form.submit, {
+                        'attr': {'class': 'w-full p-3 bg-blue-400 rounded-md font-semibold text-white hover:bg-blue-500 hover:scale-105 transition-all duration-200 ease'}
+                    }) }}
                 </div>
+
                 {{ form_end(form) }}
             </div>
         </div>
     </div>
 {% endblock %}
-
-
