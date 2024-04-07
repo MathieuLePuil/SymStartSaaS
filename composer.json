@@ -55,13 +55,13 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "Scripts\\": "scripts/"
+            "App\\Scripts\\": "scripts/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/",
-            "Scripts\\": "scripts/"
+            "App\\Scripts\\": "scripts/"
         }
     },
     "replace": {
