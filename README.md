@@ -1,5 +1,6 @@
 <h1 align="center">SymStartSaas</h1>
-<hr>
+
+<br>
 
 ## Installation
 
